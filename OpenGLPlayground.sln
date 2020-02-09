@@ -40,7 +40,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project_012(Face_Culling)",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project_013(Framebuffer)", "Project_013\Project_013.vcxproj", "{C972C8E5-B77A-4A2C-9C92-536BC21BB47E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project_014(Post_Processing)", "Project_014\Project_014.vcxproj", "{FD9D0B2A-5799-4A70-84B9-A0C359E11529}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project_014(Cubemap)", "Project_014\Project_014.vcxproj", "{FD9D0B2A-5799-4A70-84B9-A0C359E11529}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
