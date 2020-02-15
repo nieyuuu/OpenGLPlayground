@@ -14,7 +14,7 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Shaders">
-      <UniqueIdentifier>{6045ff5d-6ce5-4f00-ba85-4286e723cac3}</UniqueIdentifier>
+      <UniqueIdentifier>{d78b3e1b-24c9-45ce-809a-baff73ae56fe}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,16 +37,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="framebuffer_vertex.vs">
+    <None Include="blinn_phong_shading_fragment.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="framebuffer_fragment.fs">
+    <None Include="blinn_phong_shading_vertex.vs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="framebuffer_screen_fragment.fs">
+    <None Include="depth_map_fragment.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="framebuffer_screen_vertex.vs">
+    <None Include="depth_map_vertex.vs">
       <Filter>Shaders</Filter>
     </None>
     <None Include="packages.config" />

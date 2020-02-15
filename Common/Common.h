@@ -18,7 +18,7 @@ float DeltaTime = 0.0f;
 float LastFrameTime = 0.0f;
 
 GLFWwindow* sWindow = nullptr;
-Camera		sCamera(glm::vec3(0.0f, 0.0f, 3.0f));
+CCamera		sCamera(glm::vec3(0.0f, 0.0f, 3.0f));
 
 void framebufferSizeCallback(GLFWwindow* vWindow, int vWidth, int vHeight)
 {
@@ -83,6 +83,7 @@ bool init(bool vResizable = true)
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 	glfwWindowHint(GLFW_RESIZABLE, vResizable);
+	glfwWindowHint(GLFW_SAMPLES, 128);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	sWindow = glfwCreateWindow(WindowWidth, WindowHeight, "OpenGL", nullptr, nullptr);
@@ -154,5 +155,38 @@ unsigned int generateTexture2D(const std::string& vTextureFile, bool vFlipVertic
 		return 0;
 	}
 	glBindTexture(GL_TEXTURE_2D, 0);
+	return Texture;
+}
+
+unsigned int generateTextureCube(const std::vector<std::string>& vTextureFiles)
+{
+	_ASSERT(vTextureFiles.size() == 6);
+	unsigned int Texture;
+	glGenTextures(1, &Texture);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, Texture);
+
+	int Width, Height, Channel;
+	stbi_set_flip_vertically_on_load(false);
+	for (int i = 0; i < 6; ++i)
+	{
+		unsigned char* Pixel = stbi_load(vTextureFiles[i].c_str(), &Width, &Height, &Channel, 0);
+		if (Pixel)
+		{
+			glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, Width, Height, 0, GL_RGB, GL_UNSIGNED_BYTE, Pixel);
+			stbi_image_free(Pixel);
+		}
+		else
+		{
+			std::cout << "Cubemap texture failed to load at path: " << vTextureFiles[i].c_str() << std::endl;
+			stbi_image_free(Pixel);
+		}
+	}
+
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+
 	return Texture;
 }

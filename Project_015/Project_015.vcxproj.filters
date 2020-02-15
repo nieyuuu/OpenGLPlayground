@@ -14,7 +14,7 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Shaders">
-      <UniqueIdentifier>{6045ff5d-6ce5-4f00-ba85-4286e723cac3}</UniqueIdentifier>
+      <UniqueIdentifier>{9c9b4498-0264-4b28-a872-9b5e9d0f5cf2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,16 +37,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="framebuffer_vertex.vs">
+    <None Include="cube_fragment.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="framebuffer_fragment.fs">
+    <None Include="cube_vertex.vs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="framebuffer_screen_fragment.fs">
+    <None Include="skybox_fragment.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="framebuffer_screen_vertex.vs">
+    <None Include="skybox_vertex.vs">
       <Filter>Shaders</Filter>
     </None>
     <None Include="packages.config" />

@@ -63,7 +63,7 @@ unsigned int CShader::programID() const
 void CShader::setTexture2DUniformValue(const std::string& vUniformName, unsigned int vTextureID, unsigned int vBindingPoint) const
 {
 	_ASSERT(m_ProgramID);
-	glActiveTexture(GL_TEXTURE0 + vBindingPoint);
+	glActiveTexture(GL_TEXTURE0 + vBindingPoint);//◊¢“‚£∫œ»active£¨‘Ÿbind
 	glBindTexture(GL_TEXTURE_2D, vTextureID);
 	int Location = glGetUniformLocation(m_ProgramID, vUniformName.c_str());
 	glUniform1i(Location, vBindingPoint);
